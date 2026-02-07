@@ -68,21 +68,29 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
     }
+
+    interface AppProfileAttributes {
+        "name": string;
+    }
+    interface ButschekModalAttributes {
+        "open": boolean;
+    }
+
     interface IntrinsicElements {
         "app-home": AppHome;
-        "app-profile": AppProfile;
+        "app-profile": Omit<AppProfile, keyof AppProfileAttributes> & { [K in keyof AppProfile & keyof AppProfileAttributes]?: AppProfile[K] } & { [K in keyof AppProfile & keyof AppProfileAttributes as `attr:${K}`]?: AppProfileAttributes[K] } & { [K in keyof AppProfile & keyof AppProfileAttributes as `prop:${K}`]?: AppProfile[K] };
         "app-root": AppRoot;
-        "butschek-modal": ButschekModal;
+        "butschek-modal": Omit<ButschekModal, keyof ButschekModalAttributes> & { [K in keyof ButschekModal & keyof ButschekModalAttributes]?: ButschekModal[K] } & { [K in keyof ButschekModal & keyof ButschekModalAttributes as `attr:${K}`]?: ButschekModalAttributes[K] } & { [K in keyof ButschekModal & keyof ButschekModalAttributes as `prop:${K}`]?: ButschekModal[K] };
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
-            "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
-            "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
-            "butschek-modal": LocalJSX.ButschekModal & JSXBase.HTMLAttributes<HTMLButschekModalElement>;
+            "app-home": LocalJSX.IntrinsicElements["app-home"] & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
+            "app-profile": LocalJSX.IntrinsicElements["app-profile"] & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
+            "app-root": LocalJSX.IntrinsicElements["app-root"] & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "butschek-modal": LocalJSX.IntrinsicElements["butschek-modal"] & JSXBase.HTMLAttributes<HTMLButschekModalElement>;
         }
     }
 }

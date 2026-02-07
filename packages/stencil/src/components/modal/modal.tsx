@@ -1,4 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 
 /**
  * @slot header - Displays header content.
@@ -16,7 +16,7 @@ export class Modal {
     return (
       <dialog open={this.open}>
         <header>
-            <slot name="header"></slot>
+          <slot name="header"></slot>
         </header>
 
         <div>

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "echo \"React app running at: http://$(hostname -I | awk '{print $1}'):3000\" && next dev --turbopack --hostname 0.0.0.0",
     "dev:info": "echo 'Starts Next.js development server with Turbopack'",
     "build": "next build",
     "build:info": "echo 'Builds the application for production'",
@@ -13,21 +13,22 @@
     "start:info": "echo 'Starts the production server'"
   },
   "dependencies": {
-    "next": "15.3.4",
-    "nextjs": "^0.0.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "@next/eslint-plugin-next": "^16.1.6",
+    "eslint-config-next": "^16.1.6",
+    "next": "^16.1.6",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@next/eslint-plugin-next": "^15.3.4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.3.4",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "postcss": "^8.4.40",
-    "typescript": "^5"
+    "@eslint/eslintrc": "^3.3.3",
+    "@next/eslint-plugin-next": "^16.1.6",
+    "@types/node": "^25.2.0",
+    "@types/react": "^19.2.10",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.2",
+    "eslint-config-next": "^16.1.6",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "postcss": "^8.5.6",
+    "typescript": "^5.9.3"
   }
 }
