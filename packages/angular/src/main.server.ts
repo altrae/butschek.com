@@ -1,9 +1,5 @@
-import { ApplicationConfig, mergeApplicationConfig } from '@angular/core';
-import { bootstrapApplication } from '@angular/platform-browser';
-import { config } from './app/app.config.server';
+import { BootstrapContext, bootstrapApplication } from '@angular/platform-browser';
+import { config as appConfig } from './app/app.config.server';
 import { App } from './app';
 
-const bootstrap = (options?: ApplicationConfig) =>
-  bootstrapApplication(App, options ? mergeApplicationConfig(config, options) : config);
-
-export default bootstrap;
+export default (bootstrapContext: BootstrapContext) => bootstrapApplication(App, appConfig, bootstrapContext);

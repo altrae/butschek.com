@@ -16,7 +16,6 @@ export class AppProfile {
   }
 
   render() {
-    debugger;
     if (this.name) {
       return (
         <div class="app-profile">
