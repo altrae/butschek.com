@@ -6,10 +6,10 @@
     "*.css": "tailwindcss",
     "*.json": "jsonc"
   },
+  "peacock.remoteColor": "lightgreen",
   "tailwindCSS.experimental.configFile": {
     "packages/angular/src/styles.css": "packages/angular/**"
   },
-  "peacock.remoteColor": "lightgreen",
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#bcf5bc",
     "activityBar.background": "#bcf5bc",
